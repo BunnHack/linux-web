@@ -1,0 +1,25 @@
+server {
+    # Railway provides a PORT environment variable. Nginx will listen on this port.
+    listen       ${PORT};
+    server_name  localhost;
+
+    gzip on;
+    gzip_types application/javascript application/wasm text/plain;
+
+    charset utf-8;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+        # These headers are required for CheerpX to work.
+        add_header 'Cross-Origin-Opener-Policy' 'same-origin' always;
+        add_header 'Cross-Origin-Embedder-Policy' 'require-corp' always;
+    }
+
+    # Redirect server error pages to the static page /50x.html
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+
