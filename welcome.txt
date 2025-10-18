@@ -1,0 +1,7 @@
+Hello from the outside world!
+
+This file demonstrates the CheerpX WebDevice.
+It is being served from the same web server as the index.html file
+and is mounted read-only inside the Linux environment at /app/welcome.txt.
+
+You can try listing the files in this directory with 'ls -l /app'.
