@@ -44,7 +44,8 @@ Try some commands:
   cat /app/welcome.txt
 
 `;
-        await cx.writeToStdin(motd);
+        // Use `cx.run` with `cat` to print the MOTD.
+        await cx.run('/bin/cat', [], { stdin: motd });
 
         // Run a full-featured shell in your browser.
         await cx.run("/bin/bash", ["--login"], {
